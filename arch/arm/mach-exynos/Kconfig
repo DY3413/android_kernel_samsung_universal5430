@@ -935,6 +935,10 @@ config MACH_A7LTE
 	bool "A7 LTE Helsinki feature"
 	default n
 
+config MACH_SLTE
+	bool "Alpha LTE Helsinki feature"
+	default n
+
 config TIMA
 	bool "Enable TIMA(Trustzone based Integrity Measurement Archtecture feature"
 	default n

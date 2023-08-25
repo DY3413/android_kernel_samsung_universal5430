@@ -46,20 +46,29 @@ dtb-$(CONFIG_ARCH_DAVINCI) += da850-enbw-cmc.dtb \
 dtb-$(CONFIG_ARCH_DOVE) += dove-cm-a510.dtb \
 	dove-cubox.dtb \
 	dove-dove-db.dtb
-#dtb-$(CONFIG_ARCH_EXYNOS) += exynos4210-origen.dtb \
-#	exynos4210-smdkv310.dtb \
-#	exynos4210-trats.dtb \
-#	exynos4210-universal_c210.dtb \
-#	exynos4412-odroidx.dtb \
-#	exynos4412-smdk4412.dtb \
-#	exynos4412-origen.dtb \
-#	exynos5250-arndale.dtb \
-#	exynos5440-sd5v1.dtb \
-#	exynos5250-smdk5250.dtb \
-#	exynos5250-snow.dtb \
-#	exynos5422-smdk5422.dtb \
-#	exynos5430-xyref5430.dtb \
-#	exynos5440-ssdk5440.dtb
+ifeq ($(CONFIG_ARCH_EXYNOS),y)
+	ifeq ($(CONFIG_MACH_A7LTE),y)
+		dtb-y += exynos5430-a7_eur_open_00.dtb
+		dtb-y += exynos5430-a7_eur_open_01.dtb
+		dtb-y += exynos5430-a7_eur_open_03.dtb
+	else ifeq ($(CONFIG_MACH_SLTE),y)
+		dtb-y += exynos5430-slte_aus_open_09.dtb
+		dtb-y += exynos5430-slte_eur_open_02.dtb
+		dtb-y += exynos5430-slte_eur_open_03.dtb
+		dtb-y += exynos5430-slte_eur_open_04.dtb
+		dtb-y += exynos5430-slte_eur_open_06.dtb
+		dtb-y += exynos5430-slte_eur_open_09.dtb
+		dtb-y += exynos5430-slte_kor_open_06.dtb
+	else
+		dtb-y += exynos5430-a8_kor_open_00.dtb
+		dtb-y += exynos5430-a8_kor_open_02.dtb
+		dtb-y += exynos5430-a8_kor_open_03.dtb
+		dtb-y += exynos5430-a8_kor_open_05.dtb
+		dtb-y += exynos5430-a8_mea_open_03.dtb
+		dtb-y += exynos5430-a8_mea_open_04.dtb
+		dtb-y += exynos5430-a8_mea_open_05.dtb
+	endif
+endif
 dtb-$(CONFIG_ARCH_HIGHBANK) += highbank.dtb \
 	ecx-2000.dtb
 dtb-$(CONFIG_ARCH_INTEGRATOR) += integratorap.dtb \
